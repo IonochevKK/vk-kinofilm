@@ -1,0 +1,148 @@
+@import "../../../globalStyles/breakPoints.scss";
+.text-h1 {
+  font-family: "Inter Bold";
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60px;
+  @include tablet {
+    font-size: 36px;
+    line-height: 46px;
+  }
+  @include mobile {
+    font-size: 24px;
+    line-height: 29px;
+  }
+}
+.text-h2 {
+  font-family: "Inter Bold";
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+  @include tablet {
+    font-size: 34px;
+    line-height: 44px;
+  }
+  @include mobile {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+.text-h3 {
+  font-family: "Inter Bold";
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  @include tablet {
+    font-size: 24px;
+    line-height: 29px;
+  }
+  @include mobile {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+.text-body1 {
+  line-height: 50px;
+  font-size: 36px;
+  font-weight: 700;
+  @include tablet {
+    font-size: 34px;
+    line-height: 44px;
+  }
+  @include mobile {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+.text-body2 {
+  line-height: 33px;
+  font-size: 24px;
+  font-weight: 600;
+  @include tablet {
+    font-size: 24px;
+    line-height: 33px;
+  }
+  @include mobile {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+.text-body2_bold {
+  line-height: 33px;
+  font-size: 24px;
+  font-weight: 500;
+  @include tablet {
+    font-size: 24px;
+    line-height: 33px;
+  }
+  @include mobile {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+.text-body3 {
+  line-height: 28px;
+  font-size: 20px;
+  font-weight: 600;
+  @include tablet {
+    line-height: 28px;
+    font-size: 20px;
+  }
+  @include mobile {
+    line-height: 24px;
+    font-size: 16px;
+  }
+}
+.text-body3_bold {
+  line-height: 28px;
+  font-size: 20px;
+  font-weight: 500;
+  @include tablet {
+    line-height: 28px;
+    font-size: 20px;
+  }
+  @include mobile {
+    line-height: 24px;
+    font-size: 16px;
+  }
+}
+.text-body4 {
+  line-height: 26px;
+  font-size: 16px;
+  font-weight: 500;
+  @include tablet {
+    line-height: 26px;
+    font-size: 16px;
+  }
+  @include mobile {
+    line-height: 20px;
+    font-size: 14px;
+  }
+}
+.text-body4_bold {
+  line-height: 26px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  font-size: 16px;
+}
+.text-body5 {
+  line-height: 20px;
+  font-size: 14px;
+  font-weight: 400;
+}
+.text-body6 {
+  line-height: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.text-caption1 {
+  line-height: 20px;
+  font-size: 12px;
+  font-weight: 400;
+}
+.text-caption2 {
+  line-height: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}

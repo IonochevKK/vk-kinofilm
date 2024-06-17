@@ -1,0 +1,71 @@
+@import "../../globalStyles/breakPoints.scss";
+.search-input-container {
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  .input-container {
+    position: relative;
+    .svg {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+    }
+  }
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 15px;
+  border: 1px solid hsla(0, 0%, 100%, 0.1);
+  background: hsla(0, 0%, 100%, 0.1);
+  outline: none;
+  &:focus,
+  &:focus-visible {
+    background-color: #fff;
+    border: none;
+  }
+}
+
+.results-list {
+  position: absolute;
+  top: 130%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 10;
+  border-radius: 10px;
+}
+
+.result-item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.result-title {
+  flex-grow: 1;
+}
+
+.result-rating,
+.result-year,
+.result-link,
+.result-price {
+  margin-left: 10px;
+}
+
+.result-link {
+  color: #ff5722;
+  text-decoration: none;
+}

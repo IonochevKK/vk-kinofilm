@@ -1,0 +1,49 @@
+.button-secondary_1 {
+  border-radius: 15px;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  background: hsla(0, 0%, 100%, 0.1);
+  transition: 0.2s all ease;
+  &:hover {
+    transform: scale(1.1);
+    background: hsla(0, 0%, 100%, 0.2);
+  }
+}
+
+.button-primary { 
+  border-radius: 22px;
+  padding: 18px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s all ease;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#ff5c4d),
+    color-stop(26.56%, #eb469f),
+    color-stop(75%, #8341ef),
+    to(#3f68f9)
+  );
+  &:hover {
+    transform: scale(1.1);
+    background: -webkit-gradient(
+      linear,
+      left top,
+      right top,
+      from(#ff5c4d),
+      color-stop(26.56%, #eb469f),
+      color-stop(75%, #8341ef),
+      to(#3f68f9)
+    );
+  }
+}
+.button-link {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.button-block {
+  width: 100%;
+}

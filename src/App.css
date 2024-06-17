@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Graphik Kinopoisk LC Web, Tahoma, Arial, Verdana, sans-serif;
+}
+body {
+  background-color: #f4f4f4;
+}
+@font-face {
+  font-family: "Graphik Kinopoisk LC Web SB Regular";
+  src: url("https://db.onlinewebfonts.com/t/a1750a4dae8db954fdd595f313b3b34e.eot");
+  src: url("https://db.onlinewebfonts.com/t/a1750a4dae8db954fdd595f313b3b34e.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/a1750a4dae8db954fdd595f313b3b34e.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/a1750a4dae8db954fdd595f313b3b34e.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/a1750a4dae8db954fdd595f313b3b34e.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/a1750a4dae8db954fdd595f313b3b34e.svg#Graphik Kinopoisk LC Web SB Regular")
+      format("svg");
+}
+
+@font-face {
+  font-family: "Inter Bold";
+  src: url("./fonts/Inter-Bold.otf") format("opentype");
+}

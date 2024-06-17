@@ -1,0 +1,16 @@
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+
+export const filmApi = createApi({
+  reducerPath: "filmApi",
+  baseQuery: fetchBaseQuery({ baseUrl: "https://api.kinopoisk.dev/v1.4/",prepareHeaders : (headers) => {
+    headers.set('accept', 'application/json');
+    headers.set('X-API-KEY', 'H0FEP1B-H6V4ZGG-GK9AAE2-NX5N2EJ');
+    return headers;
+  }}),
+  endpoints: (build) => ({
+    getFilms: build.query({
+      query: ({ page, limit}) => `movie?page=${page}&limit=${limit}`,
+    }),
+  }),
+});
+export const { useGetFilmsQuery } = filmApi;
