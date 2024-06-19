@@ -1,4 +1,3 @@
-import React from "react";
 import "./footer.scss";
 import Button from "../UI KIT/Button/Button";
 import Text from "../UI KIT/Text/Text";
@@ -27,16 +26,20 @@ const Footer = () => {
               </Text>
             </div>
             <div className="button-advertisement">
-            {!screenMobile && <Button type="primary">
-                <Text color="white" body4_bold>
-                  Попробовать бесплатно
-                </Text>
-              </Button>}
-            {screenMobile && <Button type="primary" block>
-                <Text color="white" body4_bold >
-                  Попробовать бесплатно
-                </Text>
-              </Button>}
+              {!screenMobile && (
+                <Button type="primary">
+                  <Text color="white" body4_bold>
+                    Попробовать бесплатно
+                  </Text>
+                </Button>
+              )}
+              {screenMobile && (
+                <Button type="primary" block>
+                  <Text color="white" body4_bold>
+                    Попробовать бесплатно
+                  </Text>
+                </Button>
+              )}
             </div>
           </div>
           <div className="right">

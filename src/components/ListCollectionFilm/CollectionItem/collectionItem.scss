@@ -1,0 +1,26 @@
+.collectionItem {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  padding: 20px 0px;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+  .banner-item {
+    width: 88px;
+    height: 88px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .desc-collection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    gap: 10px;
+  }
+}

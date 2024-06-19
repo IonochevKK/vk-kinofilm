@@ -7,13 +7,13 @@ import Button from "../UI KIT/Button/Button";
 import Text from "../UI KIT/Text/Text";
 import SearchInput from "../SearchInput/SearchInput";
 import { useResizeWidth } from "../../hooks/useResizeWidth";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const navRef = useRef<HTMLElement>(null);
-  const screenTablet = useResizeWidth(700);
+  const screenTablet = useResizeWidth(800);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isOpenDropDown, setIsOpenDropDown] = useState(false);
-
   const toggleDropDown = () => {
     setIsOpenDropDown(!isOpenDropDown);
   };
@@ -32,8 +32,8 @@ const Header = () => {
   }, []);
 
   return (
-    <header>
-      <div className="header">
+    <header className="header">
+      <div className="header-container">
         {!isSearchOpen && (
           <nav ref={navRef}>
             <div className="menu-item">
@@ -54,10 +54,19 @@ const Header = () => {
                   }`}
                 >
                   <div className="dropdown-menu-item">
-                    <Text body4_bold>Фильмы</Text>
+                    <Link to="/lists/categories/movies/1">
+                      <Text body4_bold>Фильмы</Text>
+                    </Link>
                   </div>
                   <div className="dropdown-menu-item">
-                    <Text body4_bold>Сериалы</Text>
+                    <Link to="/lists/categories/movies/1">
+                      <Text body4_bold>Категории</Text>
+                    </Link>
+                  </div>
+                  <div className="dropdown-menu-item">
+                    <Link to="/lists/categories/movies/3">
+                      <Text body4_bold>Сериалы</Text>
+                    </Link>
                   </div>
                   {screenTablet && (
                     <div className="dropdown-menu-item">

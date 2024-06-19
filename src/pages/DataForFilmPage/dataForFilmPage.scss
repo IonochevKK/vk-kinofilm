@@ -1,0 +1,56 @@
+.DataForFilmPage {
+  background-color: black;
+}
+.container-DataForFilmPage {
+  margin: 0 auto;
+  max-width: 1280px;
+  background-color: black;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    .banner-DataForFilmPage-item1 {
+      width: 222px;
+      height: 333px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  .middle {
+    .title-container-middle {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      .genres-film {
+        display: flex;
+        gap: 10px;
+      }
+    }
+  }
+  .right {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0px 50px;
+    .rating-title-container {
+      .rating-title {
+        .text-h2 {
+          background: linear-gradient(165deg, #ffd25e 16.44%, #b59646 63.42%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
+
+    }
+  }
+}

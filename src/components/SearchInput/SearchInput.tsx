@@ -1,53 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./searchInput.scss";
 import SearchSvg from "../../../public/svg/search.svg?react";
 import { useResizeWidth } from "../../hooks/useResizeWidth";
 import Button from "../UI KIT/Button/Button";
+import CloseSvg from "../../../public/svg/close.svg?react";
+import ListSearch from "./ListSearch/ListSearch";
+import { useGetFilmsTop10Query } from "../../redux/filmsApi";
+import { BackDropFilm, RatingFilm } from "../../types/interface";
+
 interface ResultItem {
-  title: string;
-  rating: number;
+  id: string;
+  name: string;
+  alternativeName: string;
+  backdrop: BackDropFilm;
+  description?: string;
+  rating?: RatingFilm;
   year: string;
-  link: string;
-  price?: number;
 }
 
-const mockData: ResultItem[] = [
-  {
-    title: "Беспринципные",
-    rating: 7.7,
-    year: "2020 - ...",
-    link: "#",
-    price: 0,
-  },
-  { title: "На автомате", rating: 7.3, year: "2024 - ...", link: "#" },
-  { title: "Золотое дно", rating: 8.0, year: "2024", link: "#" },
-  {
-    title: "Министерство неж gentlemanских дел",
-    rating: 7.3,
-    year: "2024",
-    link: "#",
-    price: 399,
-  },
-  { title: "Материнский инстинкт", rating: 7.1, year: "2024", link: "#" },
-  { title: "Майор Гром: Чумной Доктор", rating: 7.2, year: "2021", link: "#" },
-];
 interface SearchInputProps {
   open: (state: boolean) => void;
   isSearchOpen: boolean;
 }
+
 const SearchInput: React.FC<SearchInputProps> = ({ open, isSearchOpen }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [results, setResults] = useState<ResultItem[]>([]);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
+  const { data } = useGetFilmsTop10Query({});
   const screenTablet = useResizeWidth(700);
+
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const term = e.target.value;
     setSearchTerm(term);
-    if (term) {
-      const filteredResults = mockData.filter((item) =>
-        item.title.toLowerCase().includes(term.toLowerCase())
-      );
+    if (term && data) {
+      const filteredResults = data.docs.filter((item: ResultItem) => {
+        if (item?.name === null) {
+          return item.alternativeName
+            .toLowerCase()
+            .includes(term.toLowerCase());
+        } else {
+          return item?.name.toLowerCase().includes(term.toLowerCase());
+        }
+      });
       setResults(filteredResults);
+    } else if (data && data.docs) {
+      setResults(data.docs);
     } else {
       setResults([]);
     }
@@ -55,12 +55,35 @@ const SearchInput: React.FC<SearchInputProps> = ({ open, isSearchOpen }) => {
 
   const toggleSearch = () => {
     open(!isSearchOpen);
+    if (!isSearchOpen && data && data.docs) {
+      setResults(data.docs);
+    }
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target as Node)
+      ) {
+        setSearchTerm("");
+        setResults([]);
+        open(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [data, open]);
+
   return (
-    <div className="search-input-container">
+    <div ref={containerRef} className="search-input-container">
       <div className="input-container">
         {!screenTablet || isSearchOpen ? (
           <input
+            ref={inputRef}
             type="text"
             placeholder="Фильмы, сериалы, персоны"
             value={searchTerm}
@@ -70,26 +93,51 @@ const SearchInput: React.FC<SearchInputProps> = ({ open, isSearchOpen }) => {
         ) : null}
         <div className="svg">
           <Button type="link" onClick={toggleSearch} disabled={!screenTablet}>
-            <SearchSvg />
+            {isSearchOpen ? <CloseSvg /> : <SearchSvg />}
           </Button>
         </div>
       </div>
-      {results.length > 0 && (
-        <div className="results-list">
-          {results.map((item, index) => (
-            <div key={index} className="result-item">
-              <div className="result-title">{item.title}</div>
-              <div className="result-rating">{item.rating}</div>
-              <div className="result-year">{item.year}</div>
-              <a href={item.link} className="result-link">
-                Смотреть
-              </a>
-              {item.price !== undefined && (
-                <div className="result-price">{item.price} ₽</div>
-              )}
+      {!screenTablet && (
+        <>
+          {results.length > 0 && (
+            <div className="results-list">
+              {results.map((film) => (
+                <div className="listcard" key={film.id}>
+                  <ListSearch
+                    id={film.id}
+                    name={film?.name}
+                    alternativeName={film?.alternativeName}
+                    backdrop={film.backdrop}
+                    description={film.description}
+                    rating={film.rating}
+                    year={film.year}
+                  />
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          )}
+        </>
+      )}
+      {screenTablet && (
+        <>
+          {results.length > 0 && isSearchOpen && (
+            <div className="results-list">
+              {results.map((film) => (
+                <div className="listcard" key={film.id}>
+                  <ListSearch
+                    id={film.id}
+                    name={film?.name}
+                    alternativeName={film?.alternativeName}
+                    backdrop={film.backdrop}
+                    description={film.description}
+                    rating={film.rating}
+                    year={film.year}
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+        </>
       )}
     </div>
   );

@@ -6,9 +6,11 @@ interface ButtonProps {
   type: ButtonType;
   children?: React.ReactNode;
   block?: boolean;
-  className?: React.CSSProperties;
+  className?: string;
   disabled?: boolean;
   id?: string;
+  active?: boolean;
+  style?: React.CSSProperties;
   onClick?: () => void;
 }
 const Button: React.FC<ButtonProps> = ({
@@ -18,6 +20,8 @@ const Button: React.FC<ButtonProps> = ({
   className,
   disabled,
   id,
+  active,
+  style,
   onClick,
 }) => {
   const buttonClasses = classNames(
@@ -25,6 +29,7 @@ const Button: React.FC<ButtonProps> = ({
     `button-${type}`,
     {
       "button-block": block,
+      "button-active": active,
     },
     className
   );
@@ -34,6 +39,7 @@ const Button: React.FC<ButtonProps> = ({
       className={buttonClasses}
       id={id}
       disabled={disabled}
+      style={style}
     >
       {children}
     </button>

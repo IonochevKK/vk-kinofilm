@@ -1,0 +1,25 @@
+.filmInfoPage {
+  background-color: #fff;
+  width: 100%;
+
+  .container-filmInfoPage {
+    max-width: 1280px;
+    margin: 0 auto;
+
+    .container-main {
+      display: grid;
+      grid-template-columns: 1fr 3fr; /* Левая колонка и правая колонка */
+      gap: 20px;
+      padding: 20px;
+      width: 100%;
+
+      .container-sidebar {
+        width: 100%; 
+      }
+
+      .container-films {
+        width: 100%; 
+      }
+    }
+  }
+}

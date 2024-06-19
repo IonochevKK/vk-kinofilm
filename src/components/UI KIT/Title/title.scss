@@ -1,0 +1,22 @@
+.container-title {
+  background-color: #fff;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 15px 30px;
+  .container-width {
+    padding: 10px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .title-list {
+      display: flex;
+      gap: 20px;
+    }
+  }
+}
+a {
+  text-decoration: none;
+  color: black;
+}

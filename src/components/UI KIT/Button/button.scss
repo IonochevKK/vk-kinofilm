@@ -11,7 +11,7 @@
   }
 }
 
-.button-primary { 
+.button-primary {
   border-radius: 22px;
   padding: 18px;
   border: none;
@@ -43,7 +43,41 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+  color: rgba(0, 0, 0, 0.6);
+  &:hover {
+    color: rgba(0, 0, 0, 0.9);
+  }
 }
+
+.button-secondary_2 {
+  border: none;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: transparent;
+  color: rgba(0, 0, 0, 0.6);
+  &:active {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: rgba(0, 0, 0, 0.9);
+  }
+  &:hover {
+    color: rgba(0, 0, 0, 0.9);
+  }
+}
+
 .button-block {
   width: 100%;
+}
+
+.button-active {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.button-background {
+  background-color: #f2f2f2;
+  transition: 0.5s all ease;
+  &:hover{
+    background: #e6e6e6;
+  }
 }

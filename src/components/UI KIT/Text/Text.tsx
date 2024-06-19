@@ -22,6 +22,7 @@ interface TextProps {
   color?: string;
   fontSize?: string;
   lineHeight?: string;
+  fontWeight?: string;
 }
 
 const Text: React.FC<TextProps> = ({
@@ -45,6 +46,7 @@ const Text: React.FC<TextProps> = ({
   color,
   fontSize,
   lineHeight,
+  fontWeight,
 }) => {
   const textClasses = classNames(className, {
     "text-h1": h1,
@@ -66,6 +68,9 @@ const Text: React.FC<TextProps> = ({
   const textColorStyle: React.CSSProperties = color ? { color: color } : {};
   const lineHeightStyle: React.CSSProperties = lineHeight
     ? { lineHeight: lineHeight }
+    : {};
+  const fontWeightText: React.CSSProperties = fontWeight
+    ? { fontWeight: fontWeight }
     : {};
   const fontSizeStyle: React.CSSProperties = fontSize
     ? { fontSize: fontSize }
@@ -103,7 +108,12 @@ const Text: React.FC<TextProps> = ({
   return (
     <div
       className={textClasses}
-      style={{ ...textColorStyle, ...fontSizeStyle, ...lineHeightStyle }}
+      style={{
+        ...textColorStyle,
+        ...fontSizeStyle,
+        ...lineHeightStyle,
+        ...fontWeightText,
+      }}
       data-testid="text"
     >
       {children}

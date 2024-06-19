@@ -1,0 +1,68 @@
+@import ".../../../../../globalStyles/breakPoints.scss";
+.container-card {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  padding: 10px 10px;
+  cursor: pointer;
+  @include mobile {
+    padding: 0px 3px;
+  }
+  &:hover {
+    background-color: rgba(0, 0, 0, .03);;
+  }
+  .film-desc {
+    text-align: left;
+    display: flex;
+    gap: 15px;
+    .banner {
+      height: 48px;
+      width: 32px;
+      img {
+        height: 48px;
+        width: 32px;
+        object-fit: cover;
+        object-position: 4;
+      }
+    }
+    .film-text {
+      display: flex;
+      flex-direction: column;
+      .title {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+        @include mobile {
+        }
+      }
+    }
+    .container-desc {
+      display: flex;
+      gap: 5px;
+      .desc {
+        max-width: 300px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+      }
+    }
+  }
+  .label-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .label {
+      background-color: #f50;
+      display: flex;
+      align-items: center;
+      padding-right: 3px;
+      .image {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}

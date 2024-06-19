@@ -1,30 +1,87 @@
-# React + TypeScript + Vite
+Моё React приложение
+Обзор
+Этот проект представляет собой приложение на базе React, предназначенное для отображения и фильтрации коллекции фильмов. Оно использует Redux для управления состоянием и API Kinopoisk для получения данных о фильмах. Приложение поддерживает фильтрацию по стране, жанру и году, а также включает настраиваемый компонент пагинации.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Содержание
+Установка
+Использование
+Функционал
+Структура папок
+Доступные скрипты
+Зависимости
+Документация по API
+Вклад в проект
+Лицензия
+Установка
+Для настройки и запуска проекта локально выполните следующие шаги:
 
-Currently, two official plugins are available:
+Клонируйте репозиторий:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+bash
+Копировать код
+git clone https://github.com/your-username/my-react-app.git
+cd my-react-app
+Установите зависимости:
 
-## Expanding the ESLint configuration
+bash
+Копировать код
+npm install
+Создайте файл .env в корневом каталоге со следующим содержимым:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+env
+Копировать код
+REACT_APP_API_KEY=your-kinopoisk-api-key
+Запустите сервер разработки:
 
-- Configure the top-level `parserOptions` property like this:
+bash
+Копировать код
+npm start
+Приложение будет доступно по адресу http://localhost:3000.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+Использование
+После запуска приложения вы можете:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Просматривать список фильмов.
+Использовать фильтры для сужения списка по стране, жанру или году.
+Нажимать на фильм для просмотра подробной информации.
+Навигировать по страницам с помощью компонента пагинации.
+Функционал
+Отображение списка фильмов: Просмотр коллекции фильмов, полученных из API Kinopoisk.
+Фильтрация: Фильтрация фильмов по стране, жанру и году.
+Пагинация: Навигация по нескольким страницам списка фильмов.
+Адаптивный дизайн: Интерфейс, удобный для мобильных устройств.
+Структура папок
+plaintext
+Копировать код
+my-react-app/
+├── public/
+│   ├── index.html
+│   └── ...
+├── src/
+│   ├── components/
+│   │   ├── Layout/
+│   │   ├── Pagination/
+│   │   └── ...
+│   ├── hooks/
+│   │   └── useFetchDataFilter.ts
+│   ├── redux/
+│   │   ├── filtersSlice.ts
+│   │   ├── filmsApi.ts
+│   │   └── store.ts
+│   ├── pages/
+│   │   ├── DataForFilmPage.tsx
+│   │   └── ...
+│   ├── App.tsx
+│   ├── index.tsx
+│   └── ...
+├── .env
+├── package.json
+├── README.md
+└── ...
+Доступные скрипты
+В каталоге проекта можно выполнить следующие команды:
+
+npm start: Запускает приложение в режиме разработки.
+npm test: Запускает тесты в интерактивном режиме.
+npm run build: Создаёт сборку приложения для продакшена в папке build.
+npm run eject: Удаляет зависимость единственной сборки из вашего проекта.

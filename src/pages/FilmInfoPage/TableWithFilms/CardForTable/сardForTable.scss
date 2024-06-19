@@ -1,0 +1,61 @@
+.container-card-list {
+  display: flex;
+  gap: 15px;
+  padding: 15px 0px;
+  border-top: 0.5px solid rgba(0, 0, 0, 0.2);
+
+  .number-film {
+    width: 30px;
+  }
+
+  .banner {
+    width: 72px;
+    height: 108px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .card-info {
+    flex-grow: 1;
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      .title-container-1 {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+
+        .info-secondary {
+          display: flex;
+          gap: 4px;
+        }
+      }
+
+      .rating-card {
+        .rating-list {
+          display: flex;
+          gap: 10px;
+          align-items: center;
+
+          .rating-kp {
+            .text-body3 {
+              background: linear-gradient(
+                165deg,
+                #ffd25e 16.44%,
+                #b59646 63.42%
+              );
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
+          }
+        }
+      }
+    }
+  }
+}

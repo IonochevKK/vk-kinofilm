@@ -1,0 +1,11 @@
+.tableWithFilms {
+  .tableWithFilms-container {
+    padding: 20px 0px;
+    .item {
+      border-radius: 15px;
+      &:hover {
+        background-color: #f7f7f7;;
+      }
+    }
+  }
+}

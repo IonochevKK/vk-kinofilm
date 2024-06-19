@@ -1,0 +1,38 @@
+@import "../../globalStyles/breakPoints.scss";
+.listCollectionFilm {
+  width: 100%;
+  .ListCollectionFilm-container {
+    background-color: #fff;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    @include mobile {
+      gap: 10px;
+    }
+    .button-list {
+      display: flex;
+      width: 100%;
+      select {
+        width: 100%;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #666;
+        option {
+          color:#666
+        }
+      }
+    }
+    .list-collection-film {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      .container-list-collection {
+        max-width: 800px;
+        width: 100%;
+      }
+    }
+  }
+}

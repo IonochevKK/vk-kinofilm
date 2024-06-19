@@ -1,0 +1,27 @@
+@import '../../globalStyles/breakPoints.scss';
+.sidebar {
+  position: sticky;
+  top: 13%;
+  .container-sidebar-1 {
+    .container-buttons-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+    .container-dropdown-filter {
+      padding: 10px 30px 0px 0px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      @include tablet {
+        padding: 10px 0px 0px 0px;
+      }
+      .item {
+        width: 100%;
+        .label-sidebar {
+          padding-bottom: 5px;
+        }
+      }
+    }
+  }
+}
