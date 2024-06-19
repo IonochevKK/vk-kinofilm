@@ -1,22 +1,11 @@
-import { useState } from "react";
 import Dropdown from "../../../components/UI KIT/DropDiown/DropDown";
 import Text from "../../../components/UI KIT/Text/Text";
 import { dataFiltersRaiting } from "../../../data";
-import { CollectionMoviesCover } from "../../../types/interface";
+
 import TableWithFilms from "../TableWithFilms/TableWithFilms";
 import "./filmsList.scss";
 import { useParams } from "react-router-dom";
 import { useGetCollectionFilmsWithSlugQuery } from "../../../redux/filmsApi";
-
-interface DataCollection {
-  id?: string;
-  category?: string;
-  name?: string;
-  slug?: string;
-  moviesCount?: number;
-  cover?: CollectionMoviesCover;
-  isFetching: boolean;
-}
 
 const FilmsList: React.FC = () => {
   const slug = useParams();

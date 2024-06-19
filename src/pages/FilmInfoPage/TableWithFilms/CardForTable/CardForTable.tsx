@@ -4,19 +4,37 @@ import { dataFilm } from "../../../../types/interface";
 import Text from "../../../../components/UI KIT/Text/Text";
 import Button from "../../../../components/UI KIT/Button/Button";
 import Skeleton from "react-loading-skeleton";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addFavorite, removeFavorite } from "../../../../redux/favoritesSlice";
+
 interface CardForTableProps {
   data?: dataFilm;
   index?: number;
-  isFetching: boolean;
+  isFetching?: boolean;
 }
-import "./сardForTable.scss";
-import { useNavigate } from "react-router-dom";
+
 const CardForTable: React.FC<CardForTableProps> = ({
   data,
   index,
   isFetching,
 }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const location = useLocation().pathname.split("/")[1];
+
+  const handleAddFavorite = () => {
+    if (data) {
+      dispatch(addFavorite(data));
+    }
+  };
+
+  const handleRemoveFavorite = () => {
+    if (data) {
+      dispatch(removeFavorite(data.id));
+    }
+  };
+
   return (
     <div className="container-card-list">
       <div className="number-film">
@@ -75,28 +93,49 @@ const CardForTable: React.FC<CardForTableProps> = ({
               )}
             </div>
             <div className="button">
-         {  !isFetching ?    <Button type="primary" style={{ padding: "5px 10px" }}>
-                <Text color="#fff">Смотреть</Text>
-              </Button> : <Skeleton height={20} width={40} />}
+              {!isFetching ? (
+                <Button type="primary" style={{ padding: "5px 10px" }}>
+                  <Text color="#fff">Смотреть</Text>
+                </Button>
+              ) : (
+                <Skeleton height={20} width={40} />
+              )}
             </div>
           </div>
           <div className="rating-card">
             <div className="rating-list">
-             { !isFetching ?<>
-              <div className="rating-kp">
-                <Text body3>{data?.rating.imdb}</Text>
-              </div>
-              <div className="votes-kp">
-                <Text body5 color="rgba(0, 0, 0, 0.4">
-                  {data?.votes.kp}
-                </Text>
-              </div>
-              <div className="button">
-                <Button type="secondary_1" className="button-active">
-                  <Text body5>Добавить в избранное </Text>
-                </Button>
-              </div>
-              </> : <Skeleton height={30} width={300} />}
+              {!isFetching ? (
+                <>
+                  <div className="rating-kp">
+                    <Text body3>{data?.rating.imdb}</Text>
+                  </div>
+                  <div className="votes-kp">
+                    <Text body5 color="rgba(0, 0, 0, 0.4)">
+                      {data?.votes.kp}
+                    </Text>
+                  </div>
+                  <div className="button">
+                    <Button
+                      type="secondary_1"
+                      className="button-active"
+                      onClick={handleAddFavorite}
+                    >
+                      <Text body5>Добавить в избранное </Text>
+                    </Button>
+                    {location === "features" && (
+                      <Button
+                        type="secondary_1"
+                        className="button-active"
+                        onClick={handleRemoveFavorite}
+                      >
+                        <Text body5>Удалить из избранного </Text>
+                      </Button>
+                    )}
+                  </div>
+                </>
+              ) : (
+                <Skeleton height={30} width={300} />
+              )}
             </div>
           </div>
         </div>

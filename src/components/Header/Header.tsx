@@ -70,7 +70,9 @@ const Header = () => {
                   </div>
                   {screenTablet && (
                     <div className="dropdown-menu-item">
+                      <Link to="/features">
                       <Text body4_bold>Избранное</Text>
+                      </Link>
                     </div>
                   )}
                 </div>
@@ -83,11 +85,13 @@ const Header = () => {
         </div>
         {!screenTablet && (
           <div className="features">
+            <Link to="/features">
             <Button type="secondary_1">
               <Text body4_bold color="white">
                 Избранное
               </Text>
             </Button>
+            </Link>
           </div>
         )}
       </div>

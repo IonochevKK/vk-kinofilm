@@ -1,9 +1,9 @@
 import React from "react";
 import "./collectionItem.scss";
 import {
-  BackDropFilm,
+
   CollectionMoviesCover,
-  RatingFilm,
+
 } from "../../../types/interface";
 import Text from "../../UI KIT/Text/Text";
 import Skeleton from "react-loading-skeleton";
@@ -18,8 +18,7 @@ export interface CollectionItemProps {
   isFetching?: boolean;
 }
 const CollectionItem: React.FC<CollectionItemProps> = ({
-  id,
-  category,
+
   name,
   slug,
   moviesCount,

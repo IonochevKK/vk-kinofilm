@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import {
   useGetCollectionFilmswithSlugListQuery,
-  useGetFilmsFilterCountryQuery,
   useGetFilmsWithFiltersQuery,
 } from "../redux/filmsApi";
 import { RootState } from "../redux/store";

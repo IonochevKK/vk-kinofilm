@@ -16,7 +16,6 @@ interface ListSearchProps {
 }
 
 const ListSearch: React.FC<ListSearchProps> = ({
-  id,
   name,
   alternativeName,
   backdrop,
@@ -38,9 +37,6 @@ const ListSearch: React.FC<ListSearchProps> = ({
             </Text>
           </div>
           <div className="container-desc">
-            {/* <Text body5 color="green">
-              {rating?.kp}
-            </Text> */}
             <div className="desc">
               <Text body6 color="#666">
                 {alternativeName === null

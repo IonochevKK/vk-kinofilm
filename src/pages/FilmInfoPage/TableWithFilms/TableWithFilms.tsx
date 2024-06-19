@@ -3,7 +3,6 @@ import CardForTable from "./CardForTable/CardForTable";
 import useFetchDataFilter from "../../../hooks/useFetchDataFilter";
 import Pagination from "../../../components/UI KIT/Pagination/Pagination";
 import "./tableWithFilms.scss";
-import { useNavigate } from "react-router-dom";
 const TableWithFilms: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const { data, isFetching } = useFetchDataFilter(currentPage);

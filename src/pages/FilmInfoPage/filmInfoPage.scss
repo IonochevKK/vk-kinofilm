@@ -1,3 +1,4 @@
+@import "../../globalStyles/breakPoints.scss";
 .filmInfoPage {
   background-color: #fff;
   width: 100%;
@@ -12,14 +13,16 @@
       gap: 20px;
       padding: 20px;
       width: 100%;
-
-      .container-sidebar {
-        width: 100%; 
+      @media screen and (max-width: 800px) {
+        grid-template-columns: none;
       }
+    }
+    .container-sidebar {
+      width: 100%;
+    }
 
-      .container-films {
-        width: 100%; 
-      }
+    .container-films {
+      width: 100%;
     }
   }
 }

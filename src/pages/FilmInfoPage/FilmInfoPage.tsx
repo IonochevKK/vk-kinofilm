@@ -8,6 +8,7 @@ import Sidebar from "../../components/SideBar/Sidebar";
 import FilmsList from "./FilmsList/FilmsList";
 import { useGetFilmsQuery } from "../../redux/filmsApi";
 import { RootState } from "../../redux/store";
+import { useResizeWidth } from "../../hooks/useResizeWidth";
 
 const FilmInfoPage = () => {
   const filters = useSelector((state: RootState) => state.filters.filters);
@@ -33,7 +34,7 @@ const FilmInfoPage = () => {
       }));
     }
   }, [filters]);
-
+  const screenTablet = useResizeWidth(800);
   return (
     <main className="filmInfoPage">
       <Layout>
@@ -44,11 +45,11 @@ const FilmInfoPage = () => {
             link={"/lists/categories/movies/1"}
           />
           <div className="container-main">
-            <div className="container-sidebar">
+        {  !screenTablet &&  <div className="container-sidebar">
               <Sidebar buttons={buttons} />
-            </div>
+            </div>}
             <div className="container-films">
-              <FilmsList isFetching={isFetching} filmsData={filmsData} />
+              <FilmsList />
             </div>
           </div>
         </div>
