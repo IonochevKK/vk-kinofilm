@@ -46,7 +46,7 @@ export const filmApi = createApi({
     }),
     getFilmsWithFilters: build.query({
       query: ({ page, filterFirst, slug }) =>
-        `https://api.kinopoisk.dev/v1.4/movie?page=${page}&limit=50&sortField=${filterFirst}&sortType=1&lists=${slug}`,
+        `https://api.kinopoisk.dev/v1.4/movie?page=${page}&limit=50&sortField=${filterFirst}&sortType=-1&lists=${slug}`,
     }),
     getFilmsFilterCountry: build.query({
       query: ({ page, country, slug }) =>
